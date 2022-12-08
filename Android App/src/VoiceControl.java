@@ -224,7 +224,7 @@ public class VoiceControl extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (!ConnectSuccess) {
-                msg("Connection Failed. Is it a SPP Bluetooth? Try again.");
+                msg("Connection Failed.Try again.");
                 finish();
             } else {
                 msg("Connected");
