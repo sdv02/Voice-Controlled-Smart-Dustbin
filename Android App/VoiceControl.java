@@ -37,9 +37,7 @@ public class VoiceControl extends AppCompatActivity {
     private SpeechRecognizer speechRecognizer;
     private EditText editText;
     private ImageView micButton;
-    ConnectedThread btt = null;
 
-    //
 
     String address = null;
     private ProgressDialog progress;
@@ -48,21 +46,17 @@ public class VoiceControl extends AppCompatActivity {
     private boolean isBtConnected = false;
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    //
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_control);
 
-        //
 
         Intent intent = getIntent();
         address = intent.getStringExtra(MainActivity.EXTRA_ADDRESS);
 
         new VoiceControl.ConnectBT().execute();
 
-        //
 
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
             checkPermission();
