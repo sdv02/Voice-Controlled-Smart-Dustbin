@@ -1,11 +1,15 @@
 #include <Servo.h>
-#include <AFMotor.h>
+#include <AFMotor.h>          //for motor shield
 
+//ultrasonic sensor for car
 #define Echo A0
 #define Trig A1
 #define motor 10
+
 #define Speed 170
-#define spoint 103
+#define spoint 103       
+
+//ultrasonic sensor for dustbin
 #define Echo2 A2
 #define Trig2 A3
 #define motor2 9
@@ -22,8 +26,9 @@ int led= 10;
 long duration, dist, average;   
 long aver[3];
 
-Servo servo;
-Servo servo2;
+
+Servo servo;           //servo motor object for car
+Servo servo2;          //servo motor object for dustbin lid
 AF_DCMotor M1(1);
 AF_DCMotor M2(2);
 AF_DCMotor M3(3);
@@ -34,13 +39,13 @@ void setup() {
   Serial.begin(9600);
   pinMode(Trig2, OUTPUT);  
   pinMode(Echo2, INPUT);
-  servo2.attach(motor2);   
+  servo2.attach(motor2);   // for dustbin
   servo2.write(0);         //close cap on power on
   delay(100);
   servo2.detach(); 
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
-  servo.attach(motor); 
+  servo.attach(motor);       // for car
   M1.setSpeed(Speed);
   M2.setSpeed(Speed);
   M3.setSpeed(Speed);
@@ -64,18 +69,18 @@ void Obstacle() {
 }
 
 void voicecontrol() {
-  if (Serial.available() > 0) {
+  if (Serial.available() > 0) {         // to check for any data through bluetooth connection
     value = Serial.read();
     Serial.println(value);
-    if (value == 'a') {
+    if (value == 'f') {
       forward();
       /*delay(500);
       Stop();*/
-    } else if (value == 'c') {
+    } else if (value == 'b') {
       backward();
       delay(500);
       Stop();
-    } else if (value == 'f') {
+    } else if (value == 'l') {
       L = leftsee();
       servo.write(spoint);
       if (L >= 10 ) {
@@ -85,7 +90,7 @@ void voicecontrol() {
       } else if (L < 10) {
         Stop();
       }
-    } else if (value == 'e') {
+    } else if (value == 'r') {
       R = rightsee();
       servo.write(spoint);
       if (R >= 10 ) {
@@ -95,7 +100,7 @@ void voicecontrol() {
       } else if (R < 10) {
         Stop();
       }
-    } else if (value == 'g') {
+    } else if (value == 's') {
       Stop();
     }
   }
