@@ -20,7 +20,7 @@ Demo Model:
 
  <img src="https://user-images.githubusercontent.com/107821357/205219157-5c2bcb05-2c02-457d-b66b-26eb71c31133.png" width="300" height="500">
  
- App Sreencshots:
+ App Screenshots:
  
  <img src="https://user-images.githubusercontent.com/107821357/207361130-6afba53d-4120-4b58-8f28-8947926105b6.png" width="300" height="550">
  
