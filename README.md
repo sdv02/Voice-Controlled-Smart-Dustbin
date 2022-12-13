@@ -22,7 +22,16 @@ Demo Model:
  
  App Sreencshots:
  
- <img src="https://user-images.githubusercontent.com/107821357/207361130-6afba53d-4120-4b58-8f28-8947926105b6.png" width="300" height="600">
+ <img src="https://user-images.githubusercontent.com/107821357/207361130-6afba53d-4120-4b58-8f28-8947926105b6.png" width="300" height="550">
+ 
+ 
+<img src="https://user-images.githubusercontent.com/107821357/207361911-3ed969a0-3989-4a77-a6b3-9549b4863b63.png" width="300" height="550">
+
+
+<img src="https://user-images.githubusercontent.com/107821357/207362172-fef6e0f4-c5d7-4291-b60e-a1a67670a3e7.png" width="300" height="550">
+
+
+<img src="https://user-images.githubusercontent.com/107821357/207362347-4c7445de-a62f-4826-a445-53236b6ee594.png" width="300" height="550">
 
 
 
