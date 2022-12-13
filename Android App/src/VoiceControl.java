@@ -45,6 +45,12 @@ public class VoiceControl extends AppCompatActivity {
     BluetoothSocket btSocket = null;
     private boolean isBtConnected = false;
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    
+    String[] forward={"forward","come","come here","arrive","move forward","move front","ahead","start","straight","go straight","front","go front","go ahead","go forward"};
+    String[] backward={"backward","go back","go backward","back","move back","move backward","reverse","move reverse","go reverse"};
+    String[] left={"left","turn left","move left","left side","turn left side","move left side"};
+    String[] right={"right","turn right","move right","right side","turn right side","move right side"};
+    String[] stop={"finish","stop","Stop","Break","break","end","halt","pause"};
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -108,23 +114,19 @@ public class VoiceControl extends AppCompatActivity {
                 ArrayList<String> data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 editText.setText(data.get(0));
                 String r=data.get(0);
-                    if (r.equals("forward")||r.equals("move front")||r.equals("go")) {
-                        //String resulte = result.toString();
+                    if (Arrays.asList(forward).contains(r)) {
                         sendSignal("f");
-                    } else if (r.equals("backward")) {
-                        //String resulte = result.toString();
+                    } else if (Arrays.asList(backward).contains(r)) {
                         sendSignal("b");
-                    } else if (r.equals("right")) {
-                        //String resulte = result.toString();
+                    } else if (Arrays.asList(right).contains(r)) {
                         sendSignal("r");
-                    } else if (r.equals("left")) {
-                        //String resulte = result.toString();
+                    } else if (Arrays.asList(left).contains(r)) {
                         sendSignal("l");
-                    } else if (r.equals("stop")) {
-                        //String resulte = result.toString();
+                    } else if (Arrays.asList(stop).contains(r)) {
                         sendSignal("s");
+                    }else{
+                        msg("Invalid command");
                     }
-
             }
 
             @Override
